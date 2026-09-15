@@ -148,3 +148,11 @@ the kit's Bronze Gold, or if any text token drops below AA on its ground.
   of the four to an ad, all four across the campaign.
 - **Space Grotesk is not a code face.** Terminal output and code stay in the
   system monospace.
+
+## Launch messaging review
+
+The [adversarial messaging review](reviews/2026-09-15-messaging/index.html)
+presents findings and proposed launch copy. For a text review, read the
+[findings](reviews/2026-09-15-messaging/review.md) and
+[proposed replacements](reviews/2026-09-15-messaging/launch-copy.md).
+These are proposals for launch preparation, separate from the approved message bank.

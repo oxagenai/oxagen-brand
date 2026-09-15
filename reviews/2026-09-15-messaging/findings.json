@@ -1,0 +1,322 @@
+{
+  "date": "2026-09-15",
+  "commit": "5090ebd4cf12132f78c44991f718e648846d7ceb",
+  "findings": [
+    {
+      "id": "01",
+      "priority": "P1",
+      "title": "Completion dominates a product that also manages ongoing work",
+      "buyer": "Engineering / procurement",
+      "quote": "The agent doesn’t get to decide it’s done.",
+      "sources": [
+        {
+          "path": "skills/oxagen-branding/references/positioning.md",
+          "line": 88,
+          "excerpt": "Your agents run on a token somebody pasted in, spend against a budget nobody set, and finish when they say they are finished. Oxagen puts each agent under a mandate: security sets what it may ask for, FinOps sets what it may spend and the rules it obeys, engineering sets what it knows and what it may use, and the platform enforces all of it on every call. Every run leaves one record, what it read, what it changed, what it cost, and what proved it, that an auditor can read without trusting you."
+        },
+        {
+          "path": "skills/oxagen-branding/references/examples.md",
+          "line": 71,
+          "excerpt": "## Docs introduction"
+        },
+        {
+          "path": "skills/oxagen-branding/references/examples.md",
+          "line": 109,
+          "excerpt": "## Investor paragraph"
+        },
+        {
+          "path": "build/build.py",
+          "line": 335,
+          "excerpt": "            \"headline\": [\"Agents that\", \"prove their work.\", \"A model you own.\"],"
+        },
+        {
+          "path": "skills/oxagen-branding/references/positioning.md",
+          "line": 137,
+          "excerpt": "- **Proven, for anything the dod did.** A held dod means done. Proven is the witness verdict `flipped` and nothing else."
+        },
+        {
+          "path": "skills/oxagen-branding/references/examples.md",
+          "line": 33,
+          "excerpt": "When the agent tries to stop, the wrapper runs every check on the agent's own machine and records the results as a frame in the run. Broken, and the agent gets the failing ids and keeps working. Held, and Oxagen settles the result. Broken three times, and the run ends broken, on the record, with the reasons."
+        }
+      ],
+      "objection": "Our agents have ongoing responsibilities. Does every agent need a finish line? What does a passing verdict establish?",
+      "impact": "The proof-heavy examples center bounded coding tasks. The founder’s launch vision is broader: operators manage an autonomous workforce, including work without a terminal definition of done. Treating completion as the defining feature narrows the product and still leaves the meaning of proof unclear.",
+      "rewrite": "Mission Control for your autonomous agents. Set their authority, equip them for work, and define completion when the work has an endpoint.",
+      "action": "Lead with workforce operations. Present completion checks as an optional control for bounded tasks. Show ongoing work with authority, budgets, and operator review. Define passing checks, recomputed verdicts, and witness results separately.",
+      "proof": "Launch acceptance: demonstrate both an ongoing responsibility and a bounded task. Show check failure, retry limits, human review, and verdict recomputation for the latter. Do not imply that passing specified checks establishes universal correctness."
+    },
+    {
+      "id": "02",
+      "priority": "P1",
+      "title": "A lower bill is promised without a boundary",
+      "buyer": "Finance",
+      "quote": "Oxagen learns from every run, and the next one costs less.",
+      "sources": [
+        {
+          "path": "build/build.py",
+          "line": 328,
+          "excerpt": "            \"subline\": \"Oxagen learns from every run, and the next one costs less.\","
+        },
+        {
+          "path": "build/build.py",
+          "line": 329,
+          "excerpt": "            \"subshort\": \"Each run costs less.\","
+        },
+        {
+          "path": "skills/oxagen-branding/references/positioning.md",
+          "line": 69,
+          "excerpt": "| **Stop wasting money on AI.** | The Oxagen product page, the waste ad | Fewer tokens, same answers. The claim the record can back now. |"
+        }
+      ],
+      "objection": "Does every next run cost less, even when its task or model changes? What do you mean by the same answer?",
+      "impact": "The ad makes an unconditional outcome promise. Cost attribution alone does not establish savings or equal answer quality. The compact ad strengthens the claim further.",
+      "rewrite": "See what each recorded run costs.",
+      "action": "Separate the cost visibility claim from the cost reduction claim. For launch, use savings language only with the workload and conditions actually measured.",
+      "proof": "FinOps and engineering: provide a reproducible baseline, task set, model and rate versions, sample size, quality measure, and costs including retries and Oxagen fees. Report the distribution and exceptions, not only an average."
+    },
+    {
+      "id": "03",
+      "priority": "P1",
+      "title": "Enforcement language exceeds its stated scope",
+      "buyer": "Security / platform",
+      "quote": "enforced on every call",
+      "sources": [
+        {
+          "path": "skills/oxagen-branding/references/positioning.md",
+          "line": 13,
+          "excerpt": "**The agent control plane.** What Oxagen is to the enterprise: the one place the terms are set for every agent it runs, whoever built the agent, and enforced on every call. A control plane does not run the workload. It decides what the workload may do, hands it what it needs, and keeps the record. Oxagen does not run agents."
+        },
+        {
+          "path": "skills/oxagen-branding/references/voice.md",
+          "line": 17,
+          "excerpt": "**Honest to the record.** Say exactly what the evidence supports and stop. A held dod is done, not proven. An observe-tier run is recorded, not enforced. The UI never shows a stronger word than the frame allows, and neither does the copy."
+        },
+        {
+          "path": "skills/oxagen-branding/references/examples.md",
+          "line": 133,
+          "excerpt": "| Empty state, no rules | This workspace has no rules. Requests are answered by identity alone. Write the first rule under Access. |"
+        }
+      ],
+      "objection": "What happens with an unwrapped agent, a direct tool call, observe mode, or a workspace with no rules?",
+      "impact": "The repo itself distinguishes recording from enforcement and describes identity-only behavior without rules. Universal copy hides those distinctions. This is a messaging scope finding, not a finding that a specific bypass exists.",
+      "rewrite": "For actions routed through Oxagen, teams can set access and budget rules and review the recorded decisions.",
+      "action": "State the enrollment and enforcement boundary next to the claim. Document supported adapters, the default when no rule matches, outage behavior, and what hold or stop can affect.",
+      "proof": "Platform owner: demonstrate allow, deny, approval, missing-rule, observe-mode, and outage cases for each supported integration. Identify requests outside that boundary."
+    },
+    {
+      "id": "04",
+      "priority": "P1",
+      "title": "Identity, connection credentials, and assurance need distinct claims",
+      "buyer": "Security",
+      "quote": "there is no key to hand over, so there is nothing for the agent to leak",
+      "sources": [
+        {
+          "path": "skills/oxagen-branding/references/positioning.md",
+          "line": 47,
+          "excerpt": "- **The key never moves.** Say the credential stays in Oxagen and the agent never sees it. Never \"securely stores your keys\"; every vault says that. Say what is different: there is no key to hand over, so there is nothing for the agent to leak."
+        },
+        {
+          "path": "skills/oxagen-branding/references/positioning.md",
+          "line": 40,
+          "excerpt": "A rule answers the request. The team that owns the system writes the rule, and a rule has three answers: allow, deny, or route it to a named person. Allowed and denied requests settle inside the same call and leave a row. Routed requests wait for the person, and the run waits with them. The credential never leaves Oxagen. Oxagen makes the connection on the agent's behalf and closes it when the action is done. The answer, the rule that gave it, and the person who signed it are in the record."
+        },
+        {
+          "path": "skills/oxagen-branding/references/voice.md",
+          "line": 79,
+          "excerpt": "After: The agent never sees the key. There is nothing for it to leak."
+        }
+      ],
+      "objection": "Does the agent have a real IAM identity? Which credential stays in Oxagen? What exactly is covered by the SOC 2 claim?",
+      "impact": "The vision requires real identity and access management identities, while the copy emphasizes agents holding no token. An agent’s own authentication and downstream connection credentials need distinct explanations. The broad leak promise exceeds credential custody, and auditability alone does not substantiate a SOC 2 examination.",
+      "rewrite": "Give each agent its own identity. For mediated connections, Oxagen uses the connection credential on the agent’s behalf and records the governed action.",
+      "action": "Separate agent identity, downstream credential custody, authorization, and audit evidence. Name supported identity systems and lifecycle behavior. Keep any SOC 2 statement specific to the actual report or readiness status; no report was inspected in this review.",
+      "proof": "Security owner: demonstrate provisioning, delegation, revocation, credential handling, and audit coverage. Before an attestation claim, verify the report type, entity, system scope, period, and access process against the actual report."
+    },
+    {
+      "id": "05",
+      "priority": "P1",
+      "title": "Memory promises conflict with scoped knowledge",
+      "buyer": "Engineering / security",
+      "quote": "Teach Oxagen your business once. Every agent you run has it.",
+      "sources": [
+        {
+          "path": "build/build.py",
+          "line": 317,
+          "excerpt": "            \"subline\": \"Teach Oxagen your business once. Every agent you run has it.\","
+        },
+        {
+          "path": "skills/oxagen-branding/references/positioning.md",
+          "line": 70,
+          "excerpt": "| **Never re-explain yourself to AI ever again.** | The memory ad, the knowledge graph section | Taught once, known by every agent you run. |"
+        },
+        {
+          "path": "skills/oxagen-branding/references/positioning.md",
+          "line": 27,
+          "excerpt": "| Access | Security | Which identity the agent acts as, which systems it may ask for, which data and graph scope it may read, which actions it may request |"
+        }
+      ],
+      "objection": "Does every agent get the same information? How do updates, permissions, and stale knowledge work?",
+      "impact": "“Every agent” suggests universal distribution while the mandate promises restricted data scope. “Never” also violates the kit’s own restriction on outcome absolutes.",
+      "rewrite": "Give agents the business context their work requires.",
+      "action": "Explain approved context, permitted scope, and updates. Keep claims about reuse conditional on supported agents and configured knowledge sources. Avoid implying that storing context guarantees accurate recall.",
+      "proof": "Knowledge owner: demonstrate scoped retrieval, source attribution, corrections, deletion, and an agent denied access to another scope before claiming reuse across agents."
+    },
+    {
+      "id": "06",
+      "priority": "P2",
+      "title": "The bill headline argues about providers",
+      "buyer": "Finance / platform",
+      "quote": "Can you explain your AI bill? Neither can your provider.",
+      "sources": [
+        {
+          "path": "skills/oxagen-branding/references/positioning.md",
+          "line": 68,
+          "excerpt": "| **Can you explain your AI bill? Neither can your provider.** | The top of the site, cold email subject lines, the bill ad | Names the pain the buyer feels this month, and the product proves it today: every call priced by token class, attributed to the person, agent, run, turn, and step. |"
+        },
+        {
+          "path": "skills/oxagen-branding/references/examples.md",
+          "line": 7,
+          "excerpt": "**Headline.** Can you explain your AI bill? Neither can your provider."
+        }
+      ],
+      "objection": "My provider gives me usage reports. What does Oxagen add to those?",
+      "impact": "The second sentence creates an unsupported universal comparison. It also shifts attention away from the more useful question of attribution to a person, agent, and run. This review has not surveyed providers.",
+      "rewrite": "See which agent spent what, and on whose behalf.",
+      "action": "Keep cost attribution as the finance entry point. Lead the launch page with Mission Control for the autonomous workforce. Replace provider and category-wide dismissal with a concrete demonstration of agent identity, authority, equipment, and recorded activity.",
+      "proof": "Finance owner: show a sample cost row, rate source, attribution fields, exclusions, and reconciliation to billed totals. Use an explicit comparison set before making comparative claims."
+    },
+    {
+      "id": "07",
+      "priority": "P2",
+      "title": "The operator’s full job is missing from the lead",
+      "buyer": "Platform buyer",
+      "quote": "The category has two names and Oxagen owns both",
+      "sources": [
+        {
+          "path": "skills/oxagen-branding/SKILL.md",
+          "line": 41,
+          "excerpt": "The category has two names and Oxagen owns both: **the agent control plane** and **agent fleet management**. Fleet management is the name that pulls hardest away from the plays around us. An observe play watches. A pure governance play says no. Fleet management runs the operation: it dispatches, answers, funds, holds, and stops, and it carries the spend. Do not say observability, governance, or evals as the category; those are owned, and none of them operates anything."
+        },
+        {
+          "path": "skills/oxagen-branding/references/positioning.md",
+          "line": 13,
+          "excerpt": "**The agent control plane.** What Oxagen is to the enterprise: the one place the terms are set for every agent it runs, whoever built the agent, and enforced on every call. A control plane does not run the workload. It decides what the workload may do, hands it what it needs, and keeps the record. Oxagen does not run agents."
+        },
+        {
+          "path": "skills/oxagen-branding/references/examples.md",
+          "line": 11,
+          "excerpt": "**Action.** See your fleet"
+        },
+        {
+          "path": "skills/oxagen-branding/references/examples.md",
+          "line": 13,
+          "excerpt": "**Under the action.** Bring your own model keys and your own graph. The first screen shows your own numbers."
+        }
+      ],
+      "objection": "Where do I design authority and assign tools and skills? Is this a workforce control plane or a page for watching agents?",
+      "impact": "The current bill-led hero underrepresents the founder’s Mission Control vision. The mandate contains equipment, but tools, skills, and real agent identity do little work in the headline or first action. Multiple category claims compete with the operator’s actual job.",
+      "rewrite": "Oxagen is Mission Control for an autonomous agent workforce: assign identities, set authority, equip agents with tools and skills, and oversee their work through a shared control plane.",
+      "action": "Use Mission Control as the experience and agent control plane as the technical category. Demonstrate the full operator loop from agent identity and mandate to equipment assignment, governed action, and review. Make completion optional for bounded work.",
+      "proof": "Product owner: provide a launch walkthrough with identity, authority, tool and skill assignment, a recorded action, an ongoing agent, and a task with completion criteria. Document supported environments and control boundaries."
+    },
+    {
+      "id": "08",
+      "priority": "P2",
+      "title": "Sales copy presumes incompetence and hides proof status",
+      "buyer": "Security / engineering",
+      "quote": "Your coding agents run with a GitHub token that can push to every repo",
+      "sources": [
+        {
+          "path": "skills/oxagen-branding/references/examples.md",
+          "line": 103,
+          "excerpt": "Your coding agents run with a GitHub token that can push to every repo, because that was the only way to get them working. Nobody chose that. It is how tokens work."
+        },
+        {
+          "path": "skills/oxagen-branding/references/positioning.md",
+          "line": 117,
+          "excerpt": "- The engineering lead running terminal agents: \"I stopped reading agent PRs to find out if they were done.\""
+        },
+        {
+          "path": "skills/oxagen-branding/references/examples.md",
+          "line": 111,
+          "excerpt": "One engineer, eight months, a live platform, three paying design partners, and a customer council of nine. The product wraps Claude Code in sixty seconds and records every run frame by frame with its cost. On top of the record it does one thing nobody else does: it locks a definition of done before the agent starts, blocks the run until it holds, and lets an outside party recompute the result offline. The meter follows the proof: customers pay for proven runs, and runs and governed actions are reported as secondary meters. The next twelve weeks ship the dod on the existing recorder and put one before-and-after number from one design partner in front of the council."
+        }
+      ],
+      "objection": "You have not seen our access setup. Are those buyer quotes actual testimonials? Are the traction numbers current?",
+      "impact": "The email asserts an unknown prospect configuration. Aspirational buyer statements look like testimonials when copied out of context. Time-sensitive traction and setup claims lack dated evidence in these examples.",
+      "rewrite": "When an agent requests a repository action, can your team see which rule allowed it and who approved it? A walkthrough can show a denied request, an approval request, and the resulting record.",
+      "action": "Use a diagnostic question instead of asserting the prospect’s setup. Label buyer statements as hypothetical. Keep traction and setup-duration claims out of launch copy until an owner provides dated evidence and publication approval.",
+      "proof": "Sales owner: confirm the demo exists. Founder: date and substantiate partner counts. Customer owner: obtain attribution permission before publishing an actual testimonial. Do not promise the demo on a prospect’s repositories without agreed setup."
+    },
+    {
+      "id": "09",
+      "priority": "P2",
+      "title": "The approved message bank has already drifted",
+      "buyer": "Content operations",
+      "quote": "Four live lines. Do not write a fifth.",
+      "sources": [
+        {
+          "path": "message-bank.html",
+          "line": 143,
+          "excerpt": "<section id=\"lines\"><p class=\"eyebrow q\">Lines</p><h2>Four live lines. Do not write a fifth.</h2>"
+        },
+        {
+          "path": "skills/oxagen-branding/references/positioning.md",
+          "line": 72,
+          "excerpt": "| **Run your agents as a fleet.** | The Fleet page, the product tour, the operator reader, the fleet ad | Names the thing nobody else sells: every agent the organization runs, on one page, with its mandate, its requests, its spend, and its last run. |"
+        },
+        {
+          "path": "message-bank.html",
+          "line": 246,
+          "excerpt": "<p class=\"note\" style=\"margin-top:20px\">Ad art lives in <span class=\"mono\">ads/</span>. Every ad takes its headline from a live line above.</p></section>"
+        },
+        {
+          "path": "build/build.py",
+          "line": 335,
+          "excerpt": "            \"headline\": [\"Agents that\", \"prove their work.\", \"A model you own.\"],"
+        }
+      ],
+      "objection": "Which approved file should I trust when the HTML, skill, and ads disagree?",
+      "impact": "The positioning has five live lead lines, the message bank lists four, and the ad recipe includes a proof headline outside those live lines. The declared source-of-truth rule has no demonstrated synchronization guarantee here.",
+      "rewrite": "Approved messages, with release status and supporting evidence.",
+      "action": "Create one message registry with ID, audience, long and short copy, release status, evidence, owner, and review date. Generate the message bank and ad copy from it. Apply one coordinated launch transition to approved entries. Avoid manually maintained line counts.",
+      "proof": "Brand engineering: add a build check that every published headline maps to a launch-approved registry entry and its evidence. Regenerate SVG and PNG assets together. Sync the vendored skill after approved source changes."
+    },
+    {
+      "id": "10",
+      "priority": "P2",
+      "title": "The glossary makes the first explanation harder",
+      "buyer": "New technical buyer",
+      "quote": "Use each word exactly as defined and never a synonym.",
+      "sources": [
+        {
+          "path": "skills/oxagen-branding/references/words.md",
+          "line": 5,
+          "excerpt": "The product's vocabulary is Mission Control's vocabulary (spec §3). Use each word exactly as defined and never a synonym."
+        },
+        {
+          "path": "skills/oxagen-branding/references/words.md",
+          "line": 31,
+          "excerpt": "| mandate | the one object an agent runs under: access, budget and rules, equipment, record | policy, config, profile, permission set |"
+        },
+        {
+          "path": "skills/oxagen-branding/references/words.md",
+          "line": 24,
+          "excerpt": "| proven | a run whose witness verdict is `flipped` | verified, validated, correct |"
+        },
+        {
+          "path": "skills/oxagen-branding/references/positioning.md",
+          "line": 96,
+          "excerpt": "- **One object, enforced at the call.** Identity, knowledge scope, permitted action, commercial terms, outcome, and audit record are one typed contract, checked when the agent calls, not reconstructed after the incident."
+        }
+      ],
+      "objection": "What is a mandate, and why do I need to learn frames, witnesses, and verdicts before I understand the product?",
+      "impact": "Precise vocabulary helps operators, but the initial pitch bundles internal concepts before explaining a familiar task. A reader can mistake local definitions such as “proven” for broader guarantees.",
+      "rewrite": "Set an agent’s authority, budget, tools, and skills in its mandate. Review the record of the work Oxagen governs.",
+      "action": "Define mandate once beside the task. Keep run, request, rule, check, and cost in initial copy. Introduce frames and witness verdicts in detail pages with explicit definitions. Permit familiar explanatory language around exact UI labels.",
+      "proof": "Design owner: run a comprehension test with new buyers. Ask what the product does, which actions it controls, and what the next step requires. Track misconceptions, not just headline preference."
+    }
+  ],
+  "framing": "Launch-state workforce vision: Mission Control for operators who assign real agent identities, authority, tools, and skills and manage bounded or ongoing work. Completion criteria are optional. Copy assumes intended launch capabilities; evidence checks do not certify readiness."
+}
